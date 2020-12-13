@@ -10,7 +10,7 @@ const Index = ({ domain }) => {
 export default Index
 
 export async function getServerSideProps ({ res, req }) {
-  if(req.query.cache){
+  if(req.query && req.query.cache){
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate')
   }
   return {
